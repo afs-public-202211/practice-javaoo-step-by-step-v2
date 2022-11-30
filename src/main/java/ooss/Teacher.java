@@ -2,6 +2,7 @@ package ooss;
 
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -35,11 +36,22 @@ public class Teacher extends Person{
         else{return false;}
     }
 
+    public boolean isTeaching(Student student){
+        if (teachingClasses != null){
+            return this.teachingClasses.stream().anyMatch( oneClass -> oneClass.getNumber() == student.getKlass().getNumber());}
+        else{return false;}
+    }
     public String introduce(){
 
-            return MessageFormat.format("My name is {0}. I am {1} years old. I am a teacher.", getName(), getAge());
-
-
+        if (teachingClasses == null){
+            return MessageFormat.format("My name is {0}. I am {1} years old. I am a teacher.", getName(), getAge());}
+        else{
+            return MessageFormat.format("My name is {0}. I am {1} years old. I am a teacher. I teach Class {2}."
+                    ,getName(), getAge()
+                    ,this.teachingClasses.stream()
+                            .map(oneClass -> Integer.toString(oneClass.getNumber()))
+                            .collect(Collectors.joining(", ")));
+        }
         //return String.format("My name is %s. I am %s years old.", name, age);
         //return "My name is " + name + ". I am " + age + "years old.";
     }

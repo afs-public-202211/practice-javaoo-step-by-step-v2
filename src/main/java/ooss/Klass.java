@@ -22,4 +22,15 @@ public class Klass {
         return id;
     }
 
+    public void assignLeader(Student student){
+        if (this.equals(student.getKClass())){
+            this.leader = student;
+        }else{
+            System.out.println("It is not one of us.");
+        }
+
+    }
+    public boolean isLeader(Student student){
+        return student.equals(this.leader);
+    }
 }

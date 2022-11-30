@@ -3,20 +3,25 @@ package ooss;
 public class Student extends Person {
 
     private Klass kclass;
-    public Student(int id, String name, int age ){
-        super(id,name,age);
+
+    public Student(int id, String name, int age) {
+        super(id, name, age);
     }
 
     @Override
     public String introduce() {
-
-        if (kclass != null){
-            return String.format("My name is %s. I am %d years old. I am a student. I am in class %d.",
-                    super.getName(),
-                    super.getAge(),
-                    kclass.hashCode());
+        String initial = String.format("My name is %s. I am %d years old. I am a student."
+                , super.getName(), super.getAge());
+        if (kclass != null) {
+            if (kclass.isLeader(this)) {
+                initial = initial.concat(String.format(" I am the leader of class %d.",
+                        kclass.hashCode()));
+            } else {
+                initial = initial.concat(String.format(" I am in class %d.",
+                        kclass.hashCode()));
+            }
         }
-        return String.format("My name is %s. I am %d years old. I am a student.", super.getName(), super.getAge());
+        return initial;
     }
 
     @Override
@@ -36,14 +41,16 @@ public class Student extends Person {
         result = 31 * result + super.getId();
         return result;
     }
-    public boolean isIn(Klass kclass){
-        return this.kclass==kclass;
+
+    public boolean isIn(Klass kclass) {
+        return this.kclass == kclass;
     }
-    public void join(Klass kclass){
+
+    public void join(Klass kclass) {
         this.kclass = kclass;
     }
 
-    public Klass getKClass(){
+    public Klass getKClass() {
         return kclass;
     }
 }

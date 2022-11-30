@@ -9,6 +9,7 @@ public class Student extends Person {
 
     @Override
     public String introduce() {
+
         if (kclass != null){
             return String.format("My name is %s. I am %d years old. I am a student. I am in class %d.",
                     super.getName(),
@@ -42,4 +43,7 @@ public class Student extends Person {
         this.kclass = kclass;
     }
 
+    public Klass getKClass(){
+        return kclass;
+    }
 }

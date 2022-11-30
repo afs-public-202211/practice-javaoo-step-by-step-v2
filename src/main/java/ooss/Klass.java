@@ -2,6 +2,7 @@ package ooss;
 
 public class Klass {
     private int id;
+    private Student leader;
 
     public Klass(int id){
         this.id = id;
@@ -20,4 +21,5 @@ public class Klass {
     public int hashCode() {
         return id;
     }
+
 }

@@ -5,7 +5,8 @@ import java.text.MessageFormat;
 public class Student extends Person{
 
     private Klass klass;
-    
+    private int klassLeaderNum;
+
     public Student(int id, String name, int age) {
         super(id, name, age);
         klass = new Klass(0);
@@ -21,6 +22,14 @@ public class Student extends Person{
         return klass;
     }
 
+    public int getKlassLeaderNum() {
+        return klassLeaderNum;
+    }
+
+    public void setKlassLeaderNum(int classNumberLeader) {
+        this.klassLeaderNum = classNumberLeader;
+    }
+
     public void join(Klass klass) {
         this.klass.setNumber(klass.getNumber());
     }
@@ -33,7 +42,7 @@ public class Student extends Person{
         if (this.klass.getNumber() == 0){
             return MessageFormat.format("My name is {0}. I am {1} years old. I am a student."
                     , getName(), getAge());}
-        else if(this.klass.isLeader(new Student(getId(), this.getName(),this.getAge(), this.getKlass()))){
+        else if(this.klass.getNumber() == this.klassLeaderNum){
             return MessageFormat.format("My name is {0}. I am {1} years old. I am a student. I am the leader of class {2}."
                     , getName(), getAge(), this.klass.getNumber());
         }else{

@@ -28,4 +28,16 @@ public class Person {
 
         return person.id == id;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
 }

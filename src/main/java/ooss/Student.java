@@ -2,13 +2,19 @@ package ooss;
 
 public class Student extends Person {
 
+    private Klass kclass;
     public Student(int id, String name, int age ){
         super(id,name,age);
     }
 
     @Override
     public String introduce() {
-
+        if (kclass != null){
+            return String.format("My name is %s. I am %d years old. I am a student. I am in class %d.",
+                    super.getName(),
+                    super.getAge(),
+                    kclass.hashCode());
+        }
         return String.format("My name is %s. I am %d years old. I am a student.", super.getName(), super.getAge());
     }
 
@@ -29,4 +35,11 @@ public class Student extends Person {
         result = 31 * result + super.getId();
         return result;
     }
+    public boolean isIn(Klass kclass){
+        return this.kclass==kclass;
+    }
+    public void join(Klass kclass){
+        this.kclass = kclass;
+    }
+
 }

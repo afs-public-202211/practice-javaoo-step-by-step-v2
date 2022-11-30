@@ -16,6 +16,7 @@ public class Student extends Person{
         this.klass = klass;
     }
 
+
     public Klass getKlass() {
         return klass;
     }

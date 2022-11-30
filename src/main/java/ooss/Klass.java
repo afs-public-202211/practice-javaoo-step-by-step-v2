@@ -21,7 +21,7 @@ public class Klass {
     }
 
     public boolean isLeader(Student student){
-        if (leader != null){
+        if (this.leader != null){
             return student.getId() == this.leader.getId();}
         else{
             return false;}
@@ -42,7 +42,7 @@ public class Klass {
     }
 
     public Student getLeader() {
-        return leader;
+        return this.leader;
     }
 
     public void setNumber(int number){

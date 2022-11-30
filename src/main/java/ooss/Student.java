@@ -4,7 +4,7 @@ import java.text.MessageFormat;
 
 public class Student extends Person{
 
-    private final Klass klass;
+    private Klass klass;
     
     public Student(int id, String name, int age) {
         super(id, name, age);
@@ -33,12 +33,12 @@ public class Student extends Person{
         if (this.klass.getNumber() == 0){
             return MessageFormat.format("My name is {0}. I am {1} years old. I am a student."
                     , getName(), getAge());}
-        else if(this.klass.getLeader() == null){
-            return MessageFormat.format("My name is {0}. I am {1} years old. I am a student. I am in class {2}."
+        else if(this.klass.isLeader(new Student(getId(), this.getName(),this.getAge(), this.getKlass()))){
+            return MessageFormat.format("My name is {0}. I am {1} years old. I am a student. I am the leader of class {2}."
                     , getName(), getAge(), this.klass.getNumber());
         }else{
-            return MessageFormat.format("My name is {0}. I am {1} years old. I am a student. I am the leader of Class {3}."
-                    , getName(), getAge(), this.klass.getNumber(), this.klass.getNumber());
+            return MessageFormat.format("My name is {0}. I am {1} years old. I am a student. I am in class {2}."
+                    , getName(), getAge(), this.klass.getNumber());
         }
         //return String.format("My name is %s. I am %s years old.", name, age);
         //return "My name is " + name + ". I am " + age + "years old.";

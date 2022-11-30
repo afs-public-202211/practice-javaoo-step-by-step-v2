@@ -53,11 +53,15 @@ public class Teacher extends Person {
 
     public void assignTo(Klass kclass){
         this.kclasses.add(kclass);
+
     }
 
     public boolean isTeaching(Student student){
         return kclasses.stream()
                 .anyMatch(kclass -> student.getKClass()== kclass);
+    }
+    public void printAttachedMsg(Klass kclass) {
+        super.printAttachedMsg("teacher",kclass);
     }
 
 }

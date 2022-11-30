@@ -39,4 +39,13 @@ public class Person {
     public String getName() {
         return name;
     }
+    public void printAttachedMsg(String identityName,Klass kclass) {
+        System.out.println(String.format(
+                "I am %s, %s of Class %d. I know %s become Leader.",
+                this.name,
+                identityName,
+                kclass.hashCode(),
+                kclass.getLeader().getName()));
+    }
+
 }

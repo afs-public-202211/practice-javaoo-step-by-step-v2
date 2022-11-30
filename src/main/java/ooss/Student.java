@@ -48,9 +48,14 @@ public class Student extends Person {
 
     public void join(Klass kclass) {
         this.kclass = kclass;
+
     }
 
     public Klass getKClass() {
         return kclass;
+    }
+
+    public void printAttachedMsg(Klass kclass) {
+       super.printAttachedMsg("student",kclass);
     }
 }

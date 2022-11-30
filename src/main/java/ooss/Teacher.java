@@ -43,7 +43,7 @@ public class Teacher extends Person{
     }
     public String introduce(){
 
-        if (teachingClasses == null){
+        if (teachingClasses.size() == 0){
             return MessageFormat.format("My name is {0}. I am {1} years old. I am a teacher.", getName(), getAge());}
         else{
             return MessageFormat.format("My name is {0}. I am {1} years old. I am a teacher. I teach Class {2}."

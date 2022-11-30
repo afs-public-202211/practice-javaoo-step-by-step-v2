@@ -41,6 +41,10 @@ public class Klass {
         return number;
     }
 
+    public Student getLeader() {
+        return leader;
+    }
+
     public void setNumber(int number){
         this.number = number;
     }

@@ -18,4 +18,14 @@ public class Person {
         //return String.format("My name is %s. I am %s years old.", name, age);
         //return "My name is " + name + ". I am " + age + "years old.";
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if(!(obj instanceof Person)) return false;
+
+        Person person = (Person) obj;
+
+        return person.id == id;
+    }
 }

@@ -4,16 +4,40 @@ import java.text.MessageFormat;
 
 public class Student extends Person{
 
-
+    private final Klass klass;
+    
     public Student(int id, String name, int age) {
         super(id, name, age);
+        klass = new Klass(0);
+    }
+
+    public Student(int id, String name, int age, Klass klass) {
+        super(id, name, age);
+        this.klass = klass;
+    }
+
+    public Klass getKlass() {
+        return klass;
+    }
+
+    public void join(Klass klass) {
+        this.klass.setNumber(klass.getNumber());
+    }
+
+    public boolean isIn(Klass klass) {
+        return this.klass.getNumber() == klass.getNumber();
     }
 
     public String introduce(){
-        return MessageFormat.format("My name is {0}. I am {1} years old. I am a student.", getName(), getAge());
+        if (this.klass.getNumber() == 0){
+        return MessageFormat.format("My name is {0}. I am {1} years old. I am a student.", getName(), getAge());}
+        else{
+            return MessageFormat.format("My name is {0}. I am {1} years old. I am a student. I am in class {2}.", getName(), getAge(), this.klass.getNumber());
+            }
         //return String.format("My name is %s. I am %s years old.", name, age);
         //return "My name is " + name + ". I am " + age + "years old.";
     }
+
 
     @Override
     public boolean equals(Object obj) {

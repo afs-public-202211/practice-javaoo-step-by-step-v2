@@ -1,7 +1,7 @@
 package ooss;
 
 public class Klass {
-    private final int number;
+    private int number;
 
     public Klass(int number) {
         this.number = number;
@@ -20,4 +20,9 @@ public class Klass {
     public int getNumber(){
         return number;
     }
+
+    public void setNumber(int number){
+        this.number = number;
+    }
+
 }
